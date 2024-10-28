@@ -1,12 +1,13 @@
 # Astronomy Picture of the Day (APOD) Viewer
 
-![APOD Banner](https://example.com/banner-image.jpg) <!-- Replace with an actual image URL -->
+![APOD Banner](![image](https://github.com/user-attachments/assets/3507eeda-aedf-4dc4-b229-52580bd3de70)
+) <!-- Replace with an actual image URL -->
 
 Welcome to the Astronomy Picture of the Day (APOD) Viewer! This web application showcases stunning images and videos from NASA's APOD API, allowing you to explore the beauty of our universe right from your browser.
 
 ## Live Demo
 
-Check out the live version of the app here: [APOD Viewer](https://apod1-nasa.netlify.app/)
+Check out the live version of the app here: https://apod1-nasa.netlify.app/
 
 ## Features
 
