@@ -1,27 +1,21 @@
 export default function SideBar(props) {
   const { handleToggleModal, apodData } = props;
-    return (
-      <div className="sidebar">
-        <div onClick={()=>{
-        handleToggleModal()
-      }} className="bgOverlay"></div>
+
+  if (!apodData) return null;
+
+  return (
+    <div className="sidebar">
+        <div onClick={handleToggleModal} className="bgOverlay"></div>
         <div className="sidebarContents">
-          <h2>{apodData.title}</h2>
-          <br />
-          <div>
-            <p>Description</p>
-            <br />
-            <p>
-              {apodData.explanation}
-            </p>
-          </div>
-          <button onClick={() => {
-            handleToggleModal();
-          }}>
-            <i className="fa-solid fa-right-long"></i>
-          </button>
+            <h2>{apodData?.title}</h2>
+            <div className="descriptionContainer">
+                <p className="descriptionTitle">{apodData?.date}</p>
+                <p>{apodData?.explanation}</p>
+            </div>
+            <button onClick={handleToggleModal}>
+                <i className="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
-      </div>
-    );
-  }
-  
+    </div>
+)
+}

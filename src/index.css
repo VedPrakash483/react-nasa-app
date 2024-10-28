@@ -1,14 +1,11 @@
 :root {
-  /* General font and appearance settings */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  /* Root-level color and background color */
   color: white;
   background-color: #030615;
 
-  /* Font optimizations for smooth rendering */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,49 +13,46 @@
 }
 
 * {
-  /* Reset padding, margin, and box-sizing for consistency across elements */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 #root {
-  /* Flex layout to allow sidebar and main content to sit side by side */
   min-height: 100vh;
   display: flex;
-  position: relative;
+  display: relative;
 }
 
 .imgContainer {
-  /* Flex column layout and expansion for imgContainer */
   display: flex;
   flex-direction: column;
-  flex: 1; /* Allows image container to take remaining space */
-  overflow: hidden; /* To ensure animation is smooth and doesn't overflow */
+  max-height: 100vh;
+  width: 100%;
 }
 
 .bgImage {
-  /* Covers the container fully without stretching, with zoom animation */
   width: 100%;
   height: 100%;
+  flex: 1;
   object-fit: cover;
-  transition: transform 0.5s ease; /* Smooth transition for zoom effect */
-}
-.bgImage:hover {
-  /* Zoom effect on hover */
-  transform: scale(1.05); /* Slight zoom-in */
 }
 
 footer {
-  /* Footer positioned at the bottom */
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
+}
+
+footer div {
+  display: flex;
+  flex-direction: column;
 }
 
 footer h2 {
@@ -70,67 +64,40 @@ footer h1 {
   font-weight: 200;
 }
 
-footer div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
 footer button {
-  /* Footer button with hover animation */
   background: transparent;
-  color: white;
   border: none;
   outline: none;
+  color: white;
   padding: 1rem;
+  transition-duration: 200ms;
   cursor: pointer;
-  transition: opacity 0.3s ease;
 }
+
 footer button i {
   font-size: 1.3rem;
 }
 
 footer button:hover {
-  opacity: 0.7; /* Subtle fade on hover */
+  opacity: 0.7;
 }
 
 .bgGradient {
-  /* Background gradient overlay used in footer */
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(to top, #030615, rgba(255, 255, 255, 0));
 }
 
-/* Sidebar styling */
 .sidebar {
-  /* Sidebar slides in from the right */
   position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 80%;
-  max-width: 800px;
+  inset: 0;
   display: flex;
   flex-direction: column;
   z-index: 10;
-  background: #030615;
-  transform: translateX(100%); /* Initially off-screen */
-  animation: slideIn 0.5s ease forwards; /* Animation for slide-in */
-}
-
-/* Slide-in animation for sidebar */
-@keyframes slideIn {
-  from {
-    transform: translateX(100%); /* Start off-screen */
-  }
-  to {
-    transform: translateX(0); /* Slide into view */
-  }
 }
 
 .bgOverlay {
-  /* Overlay with opacity */
   position: absolute;
   inset: 0;
   background: #030615;
@@ -138,52 +105,96 @@ footer button:hover {
 }
 
 .sidebarContents {
-  /* Content inside sidebar with scrolling and z-index */
-  z-index: 1;
+  z-index: 15;
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  overflow-y: auto; /* Auto scrollbar */
+  overflow-y: scroll;
   height: 100%;
+  width: 80%;
+  max-width: 800px;
+  margin-left: auto;
   background: #030615;
 }
 
+.sidebarContents h2 {
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+
 .sidebarContents div {
-  /* Sidebar content div growth */
   flex: 1;
 }
 
 .sidebarContents button {
-  /* Button animation for hover */
   background: transparent;
   color: white;
   border: none;
   outline: none;
   margin-right: auto;
   cursor: pointer;
-  transition: transform 0.3s ease; /* Smooth hover transition */
-}
-.sidebarContents button i {
-  font-size: 1.3rem;
+  transition-duration: 200ms;
+  padding: 1rem 0;
 }
 
 .sidebarContents button:hover {
   opacity: 0.7;
-  transform: scale(1.1); /* Slight enlarge on hover */
 }
 
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.descriptionTitle {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.loadingState i {
+  opacity: 0.2;
+  font-size: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media (min-width: 640px) {
-  /* Sidebar adjustments for larger screens */
   .sidebar {
-    /* Becomes relative and occupies less width on desktop */
     position: relative;
-    width: 30%;
+    inset: unset;
+    min-width: 30%;
+    max-height: 100vh;
     box-shadow: 0 0 40px 1px #030615;
   }
 
   .sidebarContents {
     margin: unset;
+    width: 100%;
+  }
+
+  .bgOverlay {
+    right: 0;
+    left: unset;
+    width: 100vw;
   }
 }
