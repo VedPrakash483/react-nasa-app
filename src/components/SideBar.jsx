@@ -1,19 +1,18 @@
 export default function SideBar(props) {
-  const { handleToggleModal } = props;
+  const { handleToggleModal, apodData } = props;
     return (
       <div className="sidebar">
         <div onClick={()=>{
         handleToggleModal()
       }} className="bgOverlay"></div>
         <div className="sidebarContents">
-          <h2>The Brutal Martian Landscape</h2>
+          <h2>{apodData.title}</h2>
+          <br />
           <div>
             <p>Description</p>
+            <br />
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex hic
-              minima tempore, voluptates sint perspiciatis quasi quos molestiae
-              eum voluptatem excepturi saepe, porro dolores labore. Dignissimos
-              ducimus modi nesciunt vero!Lorem
+              {apodData.explanation}
             </p>
           </div>
           <button onClick={() => {
