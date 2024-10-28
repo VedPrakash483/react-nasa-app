@@ -1,6 +1,6 @@
 # Astronomy Picture of the Day (APOD) Viewer
 
-![APOD Banner](![image](https://github.com/user-attachments/assets/3507eeda-aedf-4dc4-b229-52580bd3de70)) <!-- Replace with an actual image URL -->
+![APOD Banner](https://github.com/user-attachments/assets/3507eeda-aedf-4dc4-b229-52580bd3de70)
 
 Welcome to the Astronomy Picture of the Day (APOD) Viewer! This web application showcases stunning images and videos from NASA's APOD API, allowing you to explore the beauty of our universe right from your browser.
 
@@ -26,11 +26,11 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/apod-viewer.git
+   git clone https://github.com/VedPrakash483/react-nasa-app.git
    
 2. **Navigate into the project directory**:
    ```bash
-   cd apod-viewer
+   cd react-nasa-app
 3. **Install dependencies**:
    ```bash
    npm install
